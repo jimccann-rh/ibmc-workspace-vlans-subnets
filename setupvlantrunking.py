@@ -22,8 +22,11 @@ vs = VSManager(client)
 #SoftLayer.managers.network.NetworkManager
 network = NetworkManager(client)
 
-data = network.list_vlans(name="ci_vlan_*")
-#data = network.list_vlans(name="devqe-segment-227")
+
+#get input on project
+project = input("Enter PROJECT value: ") 
+
+data = network.list_vlans(name=project + "vlan_*")
 #print(data)
 #print(data[0])
 #print(data[0]['id'])
@@ -37,7 +40,7 @@ for i in data:
   networkvlanid = [{'id': i['id']}]
   hardware = HardwareManager(client)
 
-  data2 = hardware.list_hardware(hostname="devqe-vmware-host-*")
+  data2 = hardware.list_hardware(hostname=project + "-vmware-host-*")
 
 
 #  print(data2)
