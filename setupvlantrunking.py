@@ -26,7 +26,7 @@ network = NetworkManager(client)
 #get input on project
 project = input("Enter PROJECT value: ") 
 
-data = network.list_vlans(name=project + "vlan_*")
+data = network.list_vlans(name=project + "_vlan_*")
 #print(data)
 #print(data[0])
 #print(data[0]['id'])
