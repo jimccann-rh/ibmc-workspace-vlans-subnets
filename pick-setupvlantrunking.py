@@ -43,8 +43,7 @@ for i in data:
   networkvlanid = [{'id': i['id']}]
   hardware = HardwareManager(client)
 
-  #data2 = hardware.list_hardware("devqe-vmware-host-10*")
-  #data2 = hardware.list_hardware(hostname=project2 + "-vmware-host-10*")
+  #data2 = hardware.list_hardware(hostname=project2 + "-vmware-host-*")
   data2 = hardware.list_hardware(hostname=project2)
 
 
