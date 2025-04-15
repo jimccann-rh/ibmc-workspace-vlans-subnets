@@ -52,3 +52,8 @@ variable "vlan_tags" {
 variable "vlan_tags_disconnected" {
   type = list(string)
 }
+
+variable "vlan_offset_name" {
+  type = string
+  default = "" 
+}
