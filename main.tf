@@ -15,7 +15,7 @@ provider "ibm" {
 resource "ibm_network_vlan" "vlans" {
   count = var.vlan_quantity
 
-  name            = "${var.project}_vlan_connect_${count.index}${var.vlan_offset_name}"
+  name            = "${var.project}_vlan_connect_${var.vlan_offset_name}${count.index}$"
   datacenter      = var.datacenter
   router_hostname = var.router
   type            = "PRIVATE"
@@ -40,7 +40,7 @@ resource "ibm_subnet" "portable_subnet" {
   ip_version = 4
   capacity   = var.subnet_capacity
   vlan_id    = ibm_network_vlan.vlans[count.index].id
-  notes      = "${var.project}_vlan_connected_${count.index}${var.vlan_offset_name}"
+  notes      = "${var.project}_vlan_connected_${var.vlan_offset_name}${count.index}"
   tags = var.vlan_tags
 
   //User can increase timeouts
